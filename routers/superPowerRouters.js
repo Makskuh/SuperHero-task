@@ -4,7 +4,7 @@ const superPowersController = require('../controllers/superPowerController');
 
 superPowerRouter
   .route('/')
-  .get(superPowersController.getSuperpowers)
-  .post(superPowersController.createSuperpowers);
+  .post(superPowersController.createSuperpowers)
+  .get(superPowersController.getSuperpowers);
 
 module.exports = superPowerRouter;

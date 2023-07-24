@@ -8,7 +8,7 @@ heroRouter
   .post(HeroController.createHero);
 
 heroRouter
-  .route('/heroes/:heroId')
+  .route('/:heroId')
   .get(HeroController.getHero)
   .put(HeroController.updateHero)
   .delete(HeroController.deleteHero);
