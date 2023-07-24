@@ -3,7 +3,7 @@ const heroRouter = express.Router();
 const HeroController = require('../controllers/heroController');
 
 heroRouter
-  .route('/heroes')
+  .route('/')
   .get(HeroController.getHeroes)
   .post(HeroController.createHero);
 

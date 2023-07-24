@@ -15,7 +15,6 @@ module.exports = (sequelize, DataTypes) => {
     {
       superpowers: DataTypes.STRING,
       allowNull: false,
-      unique: true
     },
     {
       sequelize,

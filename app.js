@@ -7,7 +7,7 @@ const bodyParser = express.json();
 
 app.use(bodyParser); 
 
-app.use(router)
+app.use(router);
 
 
 module.exports = app;

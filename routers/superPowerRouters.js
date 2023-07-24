@@ -3,7 +3,7 @@ const superPowerRouter = express.Router();
 const superPowersController = require('../controllers/superPowerController');
 
 superPowerRouter
-  .route('/superpowers')
+  .route('/')
   .get(superPowersController.getSuperpowers)
   .post(superPowersController.createSuperpowers);
 

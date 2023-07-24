@@ -13,11 +13,7 @@ module.exports.createHero = async (req, res, next) => {
 
 module.exports.getHeroes = async (req, res, next) => {
   try {
-    const heroes = await Hero.findAll({
-      attributes: {
-        exclude: ['createdAt', 'updatedAt'],
-      },
-    });
+    const heroes = await Hero.findAll();
     res.send({ data: heroes });
   } catch (error) {
     next(error);

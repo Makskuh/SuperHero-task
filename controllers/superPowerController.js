@@ -9,17 +9,11 @@ module.exports.createSuperpowers = async (req, res, next) => {
   } catch (error) {
     next(error);
   }
-}
-
-
+};
 
 module.exports.getSuperpowers = async (req, res, next) => {
   try {
-    const superpowers = await Superpowers.findAll({
-      attributes: {
-        exclude: ['createdAt', 'updatedAt'],
-      },
-    });
+    const superpowers = await Superpowers.findAll();
     res.send({ data: superpowers });
   } catch (error) {
     next(error);
