@@ -78,7 +78,7 @@ module.exports.deleteHero = async (req, res, next) => {
     });
 
     if (amountDeleted === 0) {
-      return next(createHttpError(404, 'User not found'));
+      return next(createHttpError(404, 'Hero not found'));
     }
 
     res.send({ data: amountDeleted });
