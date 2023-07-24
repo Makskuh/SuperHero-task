@@ -13,8 +13,7 @@ module.exports = (sequelize, DataTypes) => {
   }
   Superpowers.init(
     {
-      superpowers: DataTypes.STRING,
-      allowNull: false,
+      superpowers: { type: DataTypes.STRING, allowNull: false },
     },
     {
       sequelize,

@@ -24,11 +24,7 @@ module.exports = {
         allowNull:false,
         field: 'origin_description'
       },
-      superpowers: {
-        type: Sequelize.STRING,
-        allowNull:false
-      },
-      catch_phrase: {
+      catchPhrase: {
         type: Sequelize.STRING,
         allowNull:false,
         field: 'catch_phrase'

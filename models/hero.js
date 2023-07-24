@@ -34,23 +34,18 @@ module.exports = (sequelize, DataTypes) => {
         allowNull: false,
         validate: { notNull: true, notEmpty: true },
       },
-      superpowers: {
-        type: DataTypes.STRING,
-        field: 'origin_description',
-        allowNull: false,
-        validate: { notNull: true, notEmpty: true },
-      },
-      catch_phrase: {
+      catchPhrase: {
         type: DataTypes.TEXT,
         allowNull: false,
-        validate: { notNull: true, notEmpty: true },
+        field: 'catch_phrase',
+        validate: { notNull: true, notEmpty: true }
       },
       imagesPath: { type: DataTypes.TEXT, field: 'image_path' },
     },
     {
       sequelize,
       modelName: 'Hero',
-      tableName: 'hero',
+      tableName: 'heroes',
       underscored: true,
     }
   );
