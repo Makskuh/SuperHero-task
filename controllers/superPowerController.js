@@ -5,7 +5,7 @@ module.exports.createSuperpowers = async (req, res, next) => {
   try {
     const { body } = req;
     const superPower = await Superpowers.create(body);
-    res.send({ data: superPower });
+    res.status(201).send({ data: superPower });
   } catch (error) {
     next(error);
   }
@@ -14,7 +14,7 @@ module.exports.createSuperpowers = async (req, res, next) => {
 module.exports.getSuperpowers = async (req, res, next) => {
   try {
     const superpowers = await Superpowers.findAll();
-    res.send({ data: superpowers });
+    res.status(201).send({ data: superpowers });
   } catch (error) {
     next(error);
   }

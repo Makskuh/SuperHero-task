@@ -9,9 +9,20 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      imgName: {
+      imgPath: {
         type: Sequelize.STRING,
-        field: 'img_name'
+        field: 'img_path'
+      },
+      heroId: {
+        type: Sequelize.INTEGER,
+        allowNull: false,
+        field: 'hero_id',
+        references: {
+          model: 'heroes',
+          key: 'id',
+        },
+        onDelete: 'cascade',
+        onUpdate: 'cascade',
       },
       createdAt: {
         allowNull: false,

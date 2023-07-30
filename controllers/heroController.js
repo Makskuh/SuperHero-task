@@ -1,11 +1,11 @@
 const createHttpError = require('http-errors');
-const { Hero } = require('../models');
+const { Hero,Superpowers } = require('../models');
 
 module.exports.createHero = async (req, res, next) => {
   try {
     const { body } = req;
     const hero = await Hero.create(body);
-    res.send({ data: hero });
+    res.status(201).send({ data: hero });
   } catch (error) {
     next(error);
   }
@@ -13,7 +13,16 @@ module.exports.createHero = async (req, res, next) => {
 
 module.exports.getHeroes = async (req, res, next) => {
   try {
-    const heroes = await Hero.findAll();
+    const heroes = await Hero.findAll({
+      include: [
+        {
+          model: Superpowers,
+          through: {
+            attributes: [],
+          },
+        },
+      ],
+    });
     res.send({ data: heroes });
   } catch (error) {
     next(error);
@@ -35,7 +44,7 @@ module.exports.getHero = async (req, res, next) => {
       const error = createHttpError(404, 'Hero not found');
       return next(error);
     }
-    res.send({ data: hero });
+    res.status(201).send({ data: hero });
   } catch (error) {
     next(error);
   }
@@ -59,7 +68,7 @@ module.exports.updateHero = async (req, res, next) => {
       return next(createHttpError(404, 'Hero not found'));
     }
 
-    res.send({ data: updatedHero });
+    res.status(201).send({ data: updatedHero });
   } catch (error) {
     next(error);
   }
@@ -81,7 +90,7 @@ module.exports.deleteHero = async (req, res, next) => {
       return next(createHttpError(404, 'Hero not found'));
     }
 
-    res.send({ data: amountDeleted });
+    res.status(201).send({ data: amountDeleted });
   } catch (error) {
     next(error);
   }
