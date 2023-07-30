@@ -7,25 +7,36 @@ module.exports = {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
       },
       superpowers: {
         type: Sequelize.STRING,
-        allowNull:false,
+        allowNull: false,
+      },
+      heroId: {
+        type: Sequelize.INTEGER,
+        allowNull: false,
+        field: 'hero_id',
+        references: {
+          model: 'heroes',
+          key: 'id',
+        },
+        onDelete: 'cascade',
+        onUpdate: 'cascade',
       },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE,
-        field: 'created_at'
+        field: 'created_at',
       },
       updatedAt: {
         allowNull: false,
         type: Sequelize.DATE,
-        field: 'updated_at'
-      }
+        field: 'updated_at',
+      },
     });
   },
   async down(queryInterface, Sequelize) {
     await queryInterface.dropTable('superpowers');
-  }
+  },
 };

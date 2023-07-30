@@ -7,8 +7,12 @@ module.exports = (sequelize, DataTypes) => {
      * This method is not a part of Sequelize lifecycle.
      * The `models/index` file will call this method automatically.
      */
-    static associate(models) {
-      // define association here
+    static associate({Superpowers}) {
+      Hero.hasMany(Superpowers, {
+        foreignKey: 'heroId',
+        onDelete: 'cascade',
+        onUpdate: 'cascade',
+      });
     }
   }
   Hero.init(
@@ -38,7 +42,7 @@ module.exports = (sequelize, DataTypes) => {
         type: DataTypes.TEXT,
         allowNull: false,
         field: 'catch_phrase',
-        validate: { notNull: true, notEmpty: true }
+        validate: { notNull: true, notEmpty: true },
       },
       imagesPath: { type: DataTypes.TEXT, field: 'image_path' },
     },
